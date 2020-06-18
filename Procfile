@@ -1,0 +1,1 @@
+web: gunicorn emergencyBedTrackingSystem.wsgi --log-file -
