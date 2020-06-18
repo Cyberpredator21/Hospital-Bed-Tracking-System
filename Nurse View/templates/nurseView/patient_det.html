@@ -1,0 +1,14 @@
+{% extends 'nurseView/nurse_base.html' %}
+
+{% block content %}
+    <h1>Add Patient details:</h1>
+    <form method="POST" class="patient-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+<p><br><br></p>
+<p>To fill in additional information about Patient, click here:</p>
+    <form action="personal.html" method="get">
+        <button type="submit" value="link redirect">Personal Information</button>
+    </form>
+{% endblock %}
