@@ -1,0 +1,46 @@
+{% extends 'eBedTrack/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+                <div class="page-container" style="width: 100%">
+                    <table>
+                        <tr>
+                    <td><img src="../../static/images/una.png" style="align-content: center; width: 100px; height: 100px; padding-top: 10px; margin-bottom: 20px"></td>
+                    <td><h2 class="top-menu" style="padding-left: 30px">Welcome to Emergency Bed Tracking System!</h2></td>
+                    </tr>
+                    </table>
+                </div>
+
+            <div class="row" style="width: 100%">
+            <div class="col-md-10" style="margin-left: 2%; margin-top: 5%">
+            <div class="content container" style="padding-bottom: 70px">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="links">
+                            <!-- Example row of columns -->
+                            <div class="row" style="padding-right: 5px">
+                                <div class="thumbnail">
+                                        <p><a class="btn btn-primary" href="{% url 'eBedTrack:bed_availability' %}"
+                                              role="button">View Bed Availability &raquo;</a></p>
+                                   <div class="mapouter"><div class="gmap_canvas">
+                                        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1tg4D7qillWQL6HCERhxoLdxBsT8" width="640" height="480"></iframe>
+                                    </div>
+                                     <style>.mapouter{overflow:hidden;height:550px;width:640px;padding-left: 10px; padding-top: 30px}.gmap_canvas {background:none!important;height:630px;width:640px;margin-left: 60px}</style></div>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-md-3 col-xs-offset-1" style="background-color: lightskyblue; margin-top: 12%;">
+                    <h3 style="margin-left: 1%">If you are a Nurse or an Admin,</h3>
+                    <a style="font-size: 20px" href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in" style="font-size: 25px"></span> Please Login here</a>
+                    <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </p>
+                </div>
+                </div>
+            </div>
+            </div>
+            </div>
+
+
+{% endblock %}

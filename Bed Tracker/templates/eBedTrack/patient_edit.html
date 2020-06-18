@@ -1,0 +1,8 @@
+{% extends 'eBedTrack/nurse_base.html' %}
+{% block content %}
+    <h1>Update Patient Info</h1>
+    <form method="POST" class="patient-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Update</button>
+    </form>
+{% endblock %}

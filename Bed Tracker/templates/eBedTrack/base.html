@@ -1,0 +1,239 @@
+{% load staticfiles %}
+<html>
+<html lang="en">
+<head>
+    <title>Emergency Bed Tracking System</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        /* Remove the navbar's default margin-bottom and rounded borders */
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+
+        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+        .row.content {
+            height: 450px
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+/* Change the link color to #111 (black) on hover */
+        li a:hover {
+            background-color: #111;
+        }
+                /* Set gray background color and 100% height */
+                .sidenav {
+                    padding-top: 20px;
+                    background-color: #f1f1f1;
+                    height: 100%;
+                }
+         .active {
+            background-color: #A5D7A7;
+        }
+
+        /* Set black background color, white text and some padding */
+        footer {
+          background-color: black;
+          color: white;
+          padding: 8px;
+          border: 1px;
+          height: 32px; /* height + top/bottom paddding + top/bottom border must add up to footer height */
+          position: fixed;
+          bottom:0px;
+          width:100%;
+        }
+
+        body {
+            /*background-image: url('/../../static/images/background.png');*/
+            /*opacity: 1;*/
+            /*background-repeat: repeat-x;*/
+            background-color: lightskyblue;
+        }
+
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        @media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+
+            .row.content {
+                height: auto;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            #myInput {
+                background-image: url('/../../static/images/background.png');
+                background-position: 10px 10px;
+                background-repeat: no-repeat;
+                width: 100%;
+                font-size: 16px;
+                padding: 12px 20px 12px 40px;
+                border: 1px solid #ddd;
+                margin-bottom: 12px;
+            }
+
+            #myTable {
+                border-collapse: collapse;
+                width: 100%;
+                border: 1px solid #ddd;
+                font-size: 18px;
+            }
+
+            #myTable th, #myTable td {
+                text-align: left;
+                padding: 12px;
+            }
+
+            #myTable tr {
+                border-bottom: 1px solid #ddd;
+            }
+
+            /* Set gray background color and 100% height */
+            /*.sidenav {*/
+            /*padding-top: 20px;*/
+            /*background-color: #f1f1f1;*/
+            /*height: 100%;*/
+            /*}*/
+            #myTable tr.header, #myTable tr:hover {
+                background-color: #f1f1f1;
+            }
+
+            /* Remove the navbar's default margin-bottom and rounded borders */
+            .navbar {
+                margin-bottom: 0;
+                border-radius: 0;
+            }
+
+            /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+            .row.content {
+                height: 450px
+            }
+
+            /*body {*/
+            /*background-color: lemonchiffon !important;*/
+            /*}*/
+            /* Set gray background color and 100% height */
+            .sidenav {
+                padding-top: 20px;
+                background-color: #f1f1f1;
+                height: 100%;
+            }
+
+            /* Set black background color, white text and some padding */
+            body {
+                background-color: lemonchiffon !important;
+            }
+
+            /* On small screens, set height to 'auto' for sidenav and grid */
+            @media screen and (max-width: 767px) {
+                .sidenav {
+                    height: auto;
+                    padding: 15px;
+                }
+
+                .row.content {
+                    height: auto;
+                }
+            }
+        }
+
+
+    </style>
+</head>
+<body id="app-layout">
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+
+            <!-- Collapsed Hamburger -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#myNavbar">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Branding Image -->
+            <a class="navbar-brand" href="/">
+               Emergency Bed Tracking System
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="{% url 'eBedTrack:home' %}">Home</a></li>
+                <li><a href="{% url 'eBedTrack:bed_availability' %}">Bed Availability</a></li>
+                <li><a href="{% url 'eBedTrack:contact_us' %}">Contact Us</a></li>
+                <li><a href="{% url 'eBedTrack:press_report' %}">Press Report</a></li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<div class="content container">
+    <div class="row">
+        <div class="col-md-10">
+            {% block content %}
+                <div class="links">
+                    <!-- Example row of columns -->
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="thumbnail">
+                                <div class="caption">
+
+                                        <p><a class="btn btn-default" href="{% url 'eBedTrack:bed_availability' %}"
+                                              role="button">View
+                                            details &raquo;</a></p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>
+<footer>
+    <div>
+        @2017 DurangoPy Technology
+        <a onclick="window.open('privacy_statement.html','PMMovie','width=750,height=600,toolbar=no,scrollbars=yes,resizable=no,status=no,menubar=no');return false;" href="#">Privacy Statement</a>
+        |
+        <a onclick="window.open('legal_notice.html','PMMovie','width=750,height=600,toolbar=no,scrollbars=yes,resizable=no,status=no,menubar=no');return false;" href="#">Legal Notice</a>
+
+    </div>
+</footer>
+
+

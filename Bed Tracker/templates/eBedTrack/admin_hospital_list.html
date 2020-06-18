@@ -1,0 +1,78 @@
+{% extends 'eBedTrack/admin_base.html' %}
+{% block content %}
+    <html>
+    <body>
+        <style>
+            #table-wrapper {
+              position:relative;
+            }
+            #table-scroll {
+              height:750px;
+              overflow:auto;
+              margin-top:20px;
+            }
+            #table-wrapper table {
+              width:150%;
+            }
+            #table-wrapper table * {
+              color:black;
+            }
+            #table-wrapper table thead th .text {
+              position:absolute;
+              top:-20px;
+              z-index:2;
+              height:20px;
+              width:35%;
+              border:1px solid red;
+            }
+        </style>
+        <br>
+        <br>
+
+        <div class="row" style="width:150%">
+               <a href=" {% url 'eBedTrack:admin_hospital_new' %}" class="row">
+             <span class="btn btn-primary">Add Hospital</span>
+         </a>
+<br>
+<br>
+        <div  id="table-wrapper">
+
+          <div id="table-scroll">
+        <table class="table table-bordered table-hover">
+            <thead class="th">
+            <tr class="d0">
+				<th style="width: 20%">Hospital ID</th>
+                <th style="width: 50%">Hospital Name</th>
+                <th style="width: 50%">Hospital Address</th>
+                <th style="width: 40%">Phone Number</th>
+                <th style="width: 40%" colspan="2">Actions</th>
+            </thead>
+            <tbody>
+            {% for hospital in hospitals %}
+                <tr>
+                    <td>{{ hospital.hospital_id }}</td>
+					<td>{{ hospital.hospital_name }}</td>
+                    <td>{{ hospital.address }}</td>
+                    <td>{{ hospital.phone_no }}</td>
+                    <td>
+                    <a href="{% url 'eBedTrack:admin_hospital_edit'  pk=hospital.hospital_id %}" class="btn btn-warning">&nbsp; Edit Hospital Information&nbsp; </a></>
+                    <br>
+                    <br>
+                    <a href="{% url 'eBedTrack:admin_hospital_delete' pk=hospital.hospital_id%}"
+                           onclick="return confirm('Are you sure you want to delete?')"
+                           class="btn btn-danger">Delete Hospital Information</a>
+
+                </td>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        </div>
+
+
+    </div>
+    </div>
+    </body>
+    </html>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'eBedTrack/base.html' %}
+<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
+{% block content %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Emergency Bed Tracking System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+</head>
+<body>
+
+        <table class="data" id="details" style="text-align: left; margin-left: 20px; margin-top: 30%; border: medium; background-color: white; padding: 20px">
+                            {% for b,f in pdict.items %}
+                            <tr>
+                                <td>{{ b }} : {{ f }}</td>
+                                <td>&nbsp;&nbsp;AD ICU/CC: &nbsp;&nbsp;&nbsp;</td>
+                                <td>ER: 4&nbsp;&nbsp;&nbsp;</td>
+                                <td>Med/Surg: 40&nbsp;&nbsp;&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;&nbsp;OB: 3&nbsp;&nbsp;&nbsp;</td>
+                                <td>SICU: 2&nbsp;&nbsp;&nbsp;</td>
+                                <td>Neg Pres/ISO: 5&nbsp;&nbsp;&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;&nbsp;OR: 7&nbsp;&nbsp;&nbsp;</td>
+                                <td>Peds: 2&nbsp;&nbsp;&nbsp;</td>
+                                <td>PICU: 4&nbsp;&nbsp;&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;&nbsp;NICU: 4&nbsp;&nbsp;&nbsp;</td>
+                                <td>Burn: 7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                <td>Mental Health: 12&nbsp;&nbsp;&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;&nbsp;Others: 10</td>
+                            </tr>
+                            {% endfor %}
+
+                        </table>
+</body>
+</html>
+{% endblock %}

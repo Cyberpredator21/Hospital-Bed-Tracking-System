@@ -1,0 +1,63 @@
+{% extends "eBedTrack/base.html" %}
+  {% block content %}
+
+<div class="container">
+                <div class="page-container">
+                    <h2 class="top-menu">We are located here:</h2>
+                </div>
+
+            <div class="content container">
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="links">
+                            <!-- Example row of columns -->
+                            <div class="row">
+                                    <div class="thumbnail" style="padding-bottom: 32px;background-color: white; padding-top: 10px">
+                                        <div class="mapouter">
+                                            <div class="gmap_canvas">
+                                                <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1io_Hh8ezO3y8ar0u0qoZzKoumu4" width="640" height="580"></iframe>
+                                            </div>
+                                            <style>.mapouter{overflow:hidden;height:430px;width:800px;}.gmap_canvas {background:none!important;height:630px;width:640px;margin-left: 20%}</style>
+                                        </div>
+                                    </div>
+                             </div>
+                                <h2>Contact Us</h2>
+
+                                   <form role="form" action="thanks.html" method="post">
+                                        {% csrf_token %}
+                                        <table>
+                                            <tr>
+                                                <strong>First name: </strong><input type="text" name="FirstName" value="" required>
+                                                <br>
+
+                                                <br>
+
+                                                <strong>Last name: </strong> <input type="text" name="LastName" value="" required><br>
+                                                <br>
+                                                <strong>Email Id :</strong>&nbsp;&nbsp;&nbsp;  <input type="text" name="LastName" value="" required><br>
+                                                <br>
+                                                <strong>Question:  </strong>&nbsp; <br>
+                                                <textarea rows="4" cols="50" required> </textarea>
+                                            </tr>
+                                        </table>
+                                         <button style="margin-top: 20px; margin-left: 120px; margin-bottom: 50px" type="submit" class="save btn btn-default">Submit</button>
+                                    </form>
+                                    <!-- <div style="align-content: center; margin-bottom: 50px ">
+                                   <form method="POST" action="contact-us-form" >{% csrf_token %}
+
+                                        {{ form.as_p }}
+
+                                        <button class="btn btn-info" type="submit" style="margin-left: 180px">Submit</button>
+                                    </form>
+                                     </div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+</div>
+{% endblock %}
+
+
+
+
+

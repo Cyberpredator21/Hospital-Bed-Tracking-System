@@ -1,0 +1,56 @@
+{% extends 'eBedTrack/admin_base.html' %}
+{% block content %}
+    <html>
+    <body>
+    <br>
+    <br>
+
+        <div class="row" s>
+               <a href=" {% url 'eBedTrack:nurse_new' %}" class="row">
+             <span class="btn btn-primary">Add New Nurse</span>
+         </a>
+
+        <div>
+
+        <br>
+        <br>
+        <table class="table table-bordered table-hover" style="width: 100%">
+            <thead class="th">
+            <tr class="d0">
+
+                <th>Nurse ID</th>
+                <th>Hospital ID</th>
+                <th>Nurse Name</th>
+                <th>Date Created</th>
+                <th style="width: 40%" colspan="2">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in nurses %}
+                <tr>
+                    <td>{{ i.nurse_id }}</td>
+					<td>{{ i.hospital_id }}</td>
+                    <td>{{ i.first_name }}</td>
+                    <td>{{ i.created_date }}</td>
+                    <td>
+                    <a href="{% url 'eBedTrack:nurse_edit' pk=i.pk %}" class="btn btn-warning">&nbsp; Edit Nurse Information&nbsp; </a></>
+                    <br>
+                    <br>
+                    <a href="{% url 'eBedTrack:nurse_delete' pk=i.pk %}"
+                           onclick="return confirm('Are you sure you want to delete?')"
+                           class="btn btn-danger">Delete Nurse Information</a>
+
+                </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        </div>
+
+
+    </div>
+    </body>
+    </html>
+
+{% endblock %}

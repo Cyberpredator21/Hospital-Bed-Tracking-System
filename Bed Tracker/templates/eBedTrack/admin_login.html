@@ -1,0 +1,37 @@
+{% extends "eBedTrack/admin_base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+
+  <h2 style="text-align: center; padding-left: 30%"><strong>Welcome to Admin Login Screen</strong></h2>
+<div class="col-md-8">
+    <div class="thumbnail">
+        <img src="{% static "images/nurse-one.png" %}" alt="Login"/>
+            <div class="caption">
+                <h2>Login</h2>
+                <p> Enter your credntials to login</p>
+            </div>
+    </div>
+</div>
+    <!--<form method="post" action="{% url 'eBedTrack:admin_home' %}">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>{{ form.username.label_tag }}</td>
+                <td>{{ form.username }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.password.label_tag }}</td>
+                <td>{{ form.password }}</td>
+            </tr>
+        </table>
+
+        <input type="submit" value="login"/>
+        <input type="hidden" name="next" value="{{ next }}"/>
+    </form>-->
+    <form method="post" action="{% url 'eBedTrack:admin_home' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+  </form>
+{% endblock %}

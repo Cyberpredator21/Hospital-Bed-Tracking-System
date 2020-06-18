@@ -1,0 +1,35 @@
+{% extends "eBedTrack/base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+<h2 style="text-align: center; padding-left: 30%"><strong>Welcome to Nurse/Admin Login Screen</strong></h2>
+    <img style="padding-top: 5%;padding-left: 38%; padding-bottom: 5%" src="{% static "images/nurse-one.png" %}" alt="Nurse Login"/>
+    <img style="padding-top: 5%;padding-bottom: 5%" src="{% static "images/admin_image.png" %}" alt="Admin Login"/>
+
+    <table align="center" style="margin-left: 40%">
+        <tr>
+            <td style="padding-left: 2%">
+    <form method="post" action="{% url 'login' %}" >
+        {% csrf_token %}
+         {% if form.errors %}
+             <p align="center">Your username and password didn't match. Please try again.</p>
+        {% endif %}
+        <table align="center">
+            <tr>
+                <td>{{ form.username.label_tag }}</td>
+                <td>{{ form.username }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.password.label_tag }}</td>
+                <td>{{ form.password }}</td>
+            </tr>
+        </table>
+        <p align="center" style="padding-left: 30%; padding-top: 5%">
+        <input type="submit" value=" Login "/>
+        <input type="hidden" name="next" value="{{ next }}"/>
+        </p>
+    </form>
+    </td>
+
+        </table>
+{% endblock %}

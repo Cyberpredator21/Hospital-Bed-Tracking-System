@@ -1,0 +1,42 @@
+{% extends 'eBedTrack/nurse_base.html' %}
+{% load staticfiles %}
+{% block content %}
+            {% if user.is_authenticated %}
+                <div class="page-container" style="width: auto">
+                    <table>
+                        <tr>
+                    <td><img src="../../static/images/una.png" style="align-content: center; width: 100px; height: 100px; padding-top: 10px; margin-bottom: 20px"></td>
+
+                    <td><h2 class="top-menu" style="padding-left: 30px">Nurse Home Page for Emergency Bed Tracking System!</h2></td>
+                            <h2 class="top-menu">Welcome to the
+                                {{ hosp_name }},</h2>
+                    </tr>
+                    </table>
+                </div>
+            {% endif %}
+
+ <div class="content container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="links">
+                            <!-- Example row of columns -->
+                            <div class="row">
+                                    <div class="thumbnail" style="padding-bottom: 32px; background-color: white">
+                                            <h2  class="text-center">Select your choice:</h2>
+                                            <p style="padding-left: 30%; padding-top: 10%;"><a class="btn btn-primary btn-lg" href="{% url 'eBedTrack:patient_list' %}"
+                                                  role="button">View
+                                                Patient Details &raquo;</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <a class="btn btn-primary btn-lg" href="{% url 'eBedTrack:nurse_bed_availability' %}"
+                                                  role="button">View
+                                                Bed Details &raquo;</a></p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </body>
+    </html>
+{% endblock %}

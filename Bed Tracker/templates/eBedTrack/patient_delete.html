@@ -1,0 +1,11 @@
+{% extends 'eBedTrack/nurse_base.html' %}
+{% block body_block %}
+    <h1>Delete {{ patient.patient_tag }}?</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" class="btn btn-danger" value="Delete">
+        <a href="{% url 'eBedTrack:patient_list' pk=patient.patient_tag %} ">Cancel</a>
+    </form>
+
+{% endblock %}
