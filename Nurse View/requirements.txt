@@ -60,7 +60,7 @@ packaging==16.8
 paho-mqtt==1.2.3
 pandocfilters==1.4.2
 pickleshare==0.7.4
-Pillow==4.3.0
+Pillow==8.3.2
 prompt-toolkit==1.0.15
 psutil==5.2.2
 psycopg2==2.7.1
